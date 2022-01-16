@@ -21,6 +21,7 @@ export function reset(): actionIs.Reset {
 }
 
 export function loadData(): actionIs.LoadData {
+  debugger; // Todo by MongLV
   return { type: actionTypes.LOAD_DATA };
 }
 

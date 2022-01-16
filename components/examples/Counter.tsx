@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { increment, decrement, reset } from '../core/actions';
-import { AppState } from '../core/interfaces';
+import { increment, decrement, reset } from '@core/actions';
+import { AppState } from '@core/interfaces';
 
 const Counter: React.FC = () => {
   const count = useSelector((state: AppState): number => state.count);

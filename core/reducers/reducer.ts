@@ -15,7 +15,6 @@ const reducer = (
 ): AppState => {
   switch (action.type) {
     case HYDRATE:
-      debugger; // Todo by MongLV
       return { ...state, ...action.payload };
 
     case actionTypes.FAILURE:
@@ -49,7 +48,6 @@ const reducer = (
       };
 
     case actionTypes.TICK_CLOCK:
-      debugger; // Todo by MongLV
       return {
         ...state,
         ...{ lastUpdate: action.ts, light: !!action.light },
