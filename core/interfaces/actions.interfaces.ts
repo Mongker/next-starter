@@ -9,6 +9,10 @@ export enum actionTypes {
   LOAD_DATA_SUCCESS = 'LOAD_DATA_SUCCESS',
   START_CLOCK = 'START_CLOCK',
   TICK_CLOCK = 'TICK_CLOCK',
+
+  // thread
+  GET_ENTRY_DETAIL = 'GET_ENTRY_DETAIL',
+  GET_ENTRY_DETAIL_SUCCESS = 'GET_ENTRY_DETAIL_SUCCESS',
 }
 
 export type Action =
@@ -19,7 +23,9 @@ export type Action =
   | LoadData
   | LoadDataSuccess
   | StartClock
-  | TickClock;
+  | TickClock
+  | IGetEntryDetail
+  | IGetEntryDetailSuccess;
 
 export interface Failure {
   type: actionTypes.FAILURE;
@@ -55,4 +61,13 @@ export interface TickClock {
   type: actionTypes.TICK_CLOCK;
   light: boolean;
   ts: number;
+}
+
+export interface IGetEntryDetail {
+  type: actionTypes.GET_ENTRY_DETAIL;
+}
+
+export interface IGetEntryDetailSuccess {
+  type: actionTypes.GET_ENTRY_DETAIL_SUCCESS;
+  data: any;
 }

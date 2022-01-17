@@ -1,5 +1,5 @@
-import { AppState, Action, actionTypes } from '../interfaces';
 import { HYDRATE } from 'next-redux-wrapper';
+import { AppState, Action, actionTypes } from '../interfaces';
 
 export const exampleInitialState: AppState = {
   count: 0,
@@ -7,6 +7,7 @@ export const exampleInitialState: AppState = {
   lastUpdate: 0,
   light: false,
   placeholderData: null,
+  Entry: null,
 };
 
 const reducer = (
@@ -52,7 +53,11 @@ const reducer = (
         ...state,
         ...{ lastUpdate: action.ts, light: !!action.light },
       };
-
+    case actionTypes.GET_ENTRY_DETAIL_SUCCESS:
+      return {
+        ...state,
+        ...action.data,
+      };
     default:
       return state;
   }

@@ -28,4 +28,5 @@ export interface AppState {
   lastUpdate: number;
   light: boolean;
   placeholderData: User[] | null;
+  Entry: any | null;
 }

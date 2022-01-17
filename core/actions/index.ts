@@ -21,7 +21,6 @@ export function reset(): actionIs.Reset {
 }
 
 export function loadData(): actionIs.LoadData {
-  debugger; // Todo by MongLV
   return { type: actionTypes.LOAD_DATA };
 }
 
@@ -42,4 +41,12 @@ export function tickClock(isServer: boolean): actionIs.TickClock {
     light: !isServer,
     ts: Date.now(),
   };
+}
+
+export function getDataEntryDetail(): actionIs.IGetEntryDetail {
+  return { type: actionTypes.GET_ENTRY_DETAIL };
+}
+
+export function getDataEntryDetailSuccess(data: any): actionIs.IGetEntryDetailSuccess {
+  return { type: actionTypes.GET_ENTRY_DETAIL_SUCCESS, data };
 }
