@@ -17,8 +17,9 @@ import { Editor, EditorState, RichUtils, convertToRaw, convertFromRaw } from 'dr
 export default class AppEditor extends Component {
   constructor(props) {
     super(props);
+    const data = props.initialData ? props.initialData : initialData;
     this.state = {
-      editorState: EditorState.createWithContent(convertFromRaw(initialData)),
+      editorState: EditorState.createWithContent(convertFromRaw(data)),
       showToolbar: false,
       windowWidth: 0,
       toolbarMeasures: {
