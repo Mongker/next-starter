@@ -7,11 +7,11 @@ import { failure, getDataEntryDetailSuccess } from 'core/actions';
 function* doLoadDataSaga() {
   try {
     debugger; // MongLV
-    console.log('1', 1); // MongLV log fix bug
     const { status, data }: AxiosResponse = yield call(
       axios.get,
       // 'https://service.vnreview.vn/entries/281474976793931',
-      'https://vnr-thread.vercel.app//api/thread/detail',
+      'https://vnr-thread.vercel.app/api/thread/detail',
+      // 'http://localhost:2000/api/thread/detail',
     );
 
     console.log('status', status); // MongLV log fix bug

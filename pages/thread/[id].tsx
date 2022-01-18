@@ -16,17 +16,33 @@ const ThreadDetail: NextPage = () => {
   const { Entry } = useSelector(selectData);
   const entry = Entry?.get('140737488446508');
   const entryDraft = React.useMemo(() => (entry ? getEntryContentRawToView(entry) : null), [entry]);
+  debugger; // Todo by MongLV
   const content = entryDraft && convertFromRaw(entryDraft.detail);
   const contentHTML = content ? stateToHTML(content) : '';
-  // useEffect(() => {
-  //   dispatch(getDataEntryDetail());
-  // }, []);
+  console.log('contentHTML', contentHTML); // MongLV log fix bug
+  useEffect(() => {
+    !!Entry && dispatch(getDataEntryDetail());
+  }, []);
 
   return (
-    <React.Fragment>
-      {renderHTML(contentHTML)}
+    <div className={'render-html'}>
+      <div className={'content'}>{renderHTML(contentHTML)}</div>
+      <style jsx>{`
+        .render-html {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        .content {
+          width: 50%;
+          margin: 0 auto;
+          background-color: aliceblue;
+          padding: 5px;
+        }
+      `}</style>
       {/*<AppEditor initialData={detail} />*/}
-    </React.Fragment>
+    </div>
   );
 };
 
