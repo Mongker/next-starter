@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { useSelector } from 'react-redux';
 
 import { selectData } from '@core/selectors/examples/selecterData';
-import Counter from './counter';
-import Clock from './clock';
+import Counter from './Counter';
+import Clock from './Clock';
 
 interface PageProps {
   linkTo: string;
