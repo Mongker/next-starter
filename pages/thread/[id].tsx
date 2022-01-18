@@ -55,19 +55,27 @@ const ThreadDetail: NextPage = () => {
   );
 };
 
-export const getStaticPaths = () => {
-  return {
-    paths: [],
-    fallback: true,
-  };
-};
+// export const getStaticPaths = () => {
+//   return {
+//     paths: [],
+//     fallback: true,
+//   };
+// };
 
-export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
-  if (!store.getState().Entry) {
-    store.dispatch(getDataEntryDetail());
-    store.dispatch(END);
+// export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
+//   if (!store.getState().Entry) {
+//     store.dispatch(getDataEntryDetail());
+//     store.dispatch(END);
+//   }
+//   await store.sagaTask?.toPromise();
+// });
+export const getServerSideProps = wrapper.getServerSideProps(async (context) => {
+  console.log('context', context); // MongLV log fix bug
+  if (!context.store.getState().Entry) {
+    context.store.dispatch(getDataEntryDetail());
+    context.store.dispatch(END);
   }
-  await store.sagaTask?.toPromise();
+  await context.store.sagaTask?.toPromise();
 });
 
 export default ThreadDetail;
