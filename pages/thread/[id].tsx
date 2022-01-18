@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NextPage } from 'next';
 import { convertFromRaw } from 'draft-js';
-import renderHTML from 'react-render-html';
+// import renderHTML from 'react-render-html';
 import { wrapper } from '@core/store';
 import { getDataEntryDetail } from '@core/actions';
 import { END } from 'redux-saga';
@@ -24,12 +24,11 @@ const ThreadDetail: NextPage = () => {
   useEffect(() => {
     !!Entry && dispatch(getDataEntryDetail());
   }, []);
-
   return (
     <div className={'render-html'}>
       <div className={'content'}>
         <h1 className={'title'}>{title}</h1>
-        <div>{renderHTML(contentHTML)}</div>
+        <div dangerouslySetInnerHTML={{ __html: contentHTML }} />
       </div>
       <style jsx>{`
         .render-html {
