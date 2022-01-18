@@ -18,6 +18,7 @@ const ThreadDetail: NextPage = () => {
   const title = Entry?.getIn(['140737488446508', 'data', 'title']);
   const entryDraft = React.useMemo(() => (entry ? getEntryContentRawToView(entry) : null), [entry]);
   debugger; // Todo by MongLV
+  // @ts-ignore
   const content = entryDraft && convertFromRaw(entryDraft.detail);
   const contentHTML = content ? stateToHTML(content) : '';
   console.log('contentHTML', contentHTML); // MongLV log fix bug
