@@ -11,7 +11,7 @@ function* doLoadDataSaga() {
     const { status, data }: AxiosResponse = yield call(
       axios.get,
       // 'https://service.vnreview.vn/entries/281474976793931',
-      'http://localhost:2000/api/thread/detail',
+      'https://vnr-thread.vercel.app//api/thread/detail',
     );
 
     console.log('status', status); // MongLV log fix bug
