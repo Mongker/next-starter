@@ -1,5 +1,6 @@
 import { HYDRATE } from 'next-redux-wrapper';
 import { AppState, Action, actionTypes } from '../interfaces';
+import { dataFake2 } from 'core/dataFake/dataFake';
 
 export const exampleInitialState: AppState = {
   count: 0,
@@ -7,7 +8,7 @@ export const exampleInitialState: AppState = {
   lastUpdate: 0,
   light: false,
   placeholderData: null,
-  Entry: null,
+  Entry: dataFake2,
 };
 
 const reducer = (
