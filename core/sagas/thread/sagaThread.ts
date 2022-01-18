@@ -6,10 +6,15 @@ import { failure, getDataEntryDetailSuccess } from 'core/actions';
 // ---------------- do
 function* doLoadDataSaga() {
   try {
+    debugger; // MongLV
+    console.log('1', 1); // MongLV log fix bug
     const { status, data }: AxiosResponse = yield call(
       axios.get,
-      'http://localhost:3000/api/thread/detail',
+      // 'https://service.vnreview.vn/entries/281474976793931',
+      'http://localhost:2000/api/thread/detail',
     );
+
+    console.log('status', status); // MongLV log fix bug
 
     console.log('data', data); // MongLV log fix bug
 
