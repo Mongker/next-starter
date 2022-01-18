@@ -13,11 +13,6 @@ function* doLoadDataSaga() {
       'https://vnr-thread.vercel.app/api/thread/detail',
       // 'http://localhost:2000/api/thread/detail',
     );
-
-    console.log('status', status); // MongLV log fix bug
-
-    console.log('data', data); // MongLV log fix bug
-
     if (status === 200) {
       yield put(getDataEntryDetailSuccess(data));
     }

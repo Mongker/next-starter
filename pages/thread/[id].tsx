@@ -15,6 +15,7 @@ const ThreadDetail: NextPage = () => {
   const dispatch = useDispatch();
   const { Entry } = useSelector(selectData);
   const entry = Entry?.get('140737488446508');
+  const title = Entry?.getIn(['140737488446508', 'data', 'title']);
   const entryDraft = React.useMemo(() => (entry ? getEntryContentRawToView(entry) : null), [entry]);
   debugger; // Todo by MongLV
   const content = entryDraft && convertFromRaw(entryDraft.detail);
@@ -26,7 +27,10 @@ const ThreadDetail: NextPage = () => {
 
   return (
     <div className={'render-html'}>
-      <div className={'content'}>{renderHTML(contentHTML)}</div>
+      <div className={'content'}>
+        <h1 className={'title'}>{title}</h1>
+        <div>{renderHTML(contentHTML)}</div>
+      </div>
       <style jsx>{`
         .render-html {
           display: flex;
@@ -34,11 +38,16 @@ const ThreadDetail: NextPage = () => {
           justify-content: center;
           align-items: center;
         }
+        .title {
+          text-align: center;
+        }
         .content {
           width: 50%;
           margin: 0 auto;
           background-color: aliceblue;
           padding: 5px;
+          -webkit-box-shadow: 5px 5px 15px 5px #000000;
+          box-shadow: 5px 5px 15px 5px #000000;
         }
       `}</style>
       {/*<AppEditor initialData={detail} />*/}
