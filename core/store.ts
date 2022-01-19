@@ -1,4 +1,6 @@
+// eslint-disable-next-line import/named
 import { applyMiddleware, createStore, Middleware, StoreEnhancer } from 'redux';
+// eslint-disable-next-line import/named
 import { createWrapper, MakeStore } from 'next-redux-wrapper';
 import createSagaMiddleware from 'redux-saga';
 

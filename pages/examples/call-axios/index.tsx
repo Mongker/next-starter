@@ -3,7 +3,7 @@ import { NextPage } from 'next';
 import { END } from 'redux-saga';
 import { loadData } from 'core/actions';
 import { wrapper } from 'core/store';
-import ViewData from '@components/examples/ViewData';
+import ViewData from 'components/examples/ViewData';
 
 const Index: NextPage = () => {
   return <ViewData title="Call dữ liệu tại server và đưa vào store của redux" />;

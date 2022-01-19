@@ -55,6 +55,7 @@ const reducer = (
         ...{ lastUpdate: action.ts, light: !!action.light },
       };
     case actionTypes.GET_ENTRY_DETAIL_SUCCESS:
+      debugger; // MongLV
       return {
         ...state,
         ...action.data,

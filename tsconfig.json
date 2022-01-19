@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["components/*"],
-      "@app/*": ["app/*"],
-      "@hooks/*": ["hooks/*"],
-      "@core/*": ["core/*"],
-      "@root/*": ["./*"]
+//      "@components/*": ["components/*"],
+//      "@app/*": ["app/*"],
+//      "@hooks/*": ["hooks/*"],
+      "SNWClient/*": ["vala-core/SNWClient/*"],
+      "snw-modules-comp/*": ["vala-core/snw-modules-comp/*"],
+      "snw-modules/*": ["vala-core/snw-modules/*"],
+      "*": ["./*", "./node_modules/*", "./vala-core/SNWClient/node_modules/*", "./vala-core/snw-modules", "vala-core/snw-modules-comp"],
     },
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -23,6 +25,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "vala-core/SNWClient/node_modules", "app", "components", "hooks", "core", "vala-core"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

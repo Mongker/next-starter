@@ -65,6 +65,8 @@ export interface TickClock {
 
 export interface IGetEntryDetail {
   type: actionTypes.GET_ENTRY_DETAIL;
+  id: string;
+  nameAPI: string;
 }
 
 export interface IGetEntryDetailSuccess {

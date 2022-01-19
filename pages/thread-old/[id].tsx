@@ -1,12 +1,10 @@
-import React from 'react';
-import { convertFromRaw } from 'draft-js';
+import React, { useEffect } from 'react';
 import { wrapper } from 'core/store';
 import { getDataEntryDetail } from 'core/actions';
 import { END } from 'redux-saga';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectData } from 'core/selectors/examples/selecterData';
-import getEntryContentRawToView from 'core/utils/getEntryContentRawToView';
-import { stateToHTML } from 'draft-js-export-html';
+
 import getIdByUrl from 'core/utils/getIdByUrl';
 
 // interface
@@ -55,26 +53,31 @@ export const getServerSideProps = wrapper.getServerSideProps(async (context) => 
   const { id }: { id?: string } = context.query;
   const entryId = getIdByUrl(id);
   if (!context.store.getState().Entry && entryId) {
-    context.store.dispatch(getDataEntryDetail(entryId));
+    context.store.dispatch(getDataEntryDetail(entryId, 'vnr_old_entry'));
     context.store.dispatch(END);
   }
   await context.store.sagaTask?.toPromise();
+  console.log('context.store.getState().Entry', context.store.getState().Entry); // MongLV log fix bug
   return { props: { id: entryId } };
 });
 
 export default function ThreadDetail({ id }: IPropsThreadDetail): JSX.Element {
+  const dispath = useDispatch();
   const { Entry } = useSelector(selectData);
-  const entry = Entry?.get(id);
-  const title: string | unknown = Entry ? Entry.getIn([id, 'data', 'title']) || '' : '';
-  const entryDraft: IEntryDraft | any = entry ? getEntryContentRawToView(entry) : null;
-  const content = entryDraft && convertFromRaw(entryDraft.detail);
-  const contentHTML = content ? stateToHTML(content) : '';
+
+  useEffect(() => {
+    dispath(getDataEntryDetail(id, 'vnr_old_entry'));
+  }, []);
+
+  // const
+  const title: string | unknown = Entry?.getIn([id, 'data', 'title']) || '';
+  const detail: string | unknown = Entry?.getIn([id, 'data', 'detail']) || '';
   return (
     <div className={'render-html'}>
       <div className={'content'}>
         <h1 className={'title'}>{typeof title === 'string' && title}</h1>
         {/*<div>{typeof content === 'object' && JSON.stringify(contentHTML, null, 10)}</div>*/}
-        <div dangerouslySetInnerHTML={{ __html: contentHTML }} />
+        {typeof detail === 'string' && <div dangerouslySetInnerHTML={{ __html: detail || '' }} />}
       </div>
       <style jsx>{`
         .render-html {

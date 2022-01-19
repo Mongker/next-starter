@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { AppState } from '@core/interfaces';
+import { AppState } from 'core/interfaces';
 import { fromJS } from 'immutable';
 
 const selectData = createSelector(

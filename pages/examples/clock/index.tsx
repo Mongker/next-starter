@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NextPage } from 'next';
 import { startClock, tickClock } from 'core/actions';
 import { wrapper } from 'core/store';
-import { selectData } from '@core/selectors/examples/selecterData';
-import Clock from '@components/examples/Clock';
+import { selectData } from 'core/selectors/examples/selecterData';
+import Clock from 'components/examples/Clock';
 
 const Index: NextPage = () => {
   const dispatch = useDispatch();

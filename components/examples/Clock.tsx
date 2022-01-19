@@ -18,6 +18,7 @@ const Clock: React.FC<ClockProps> = ({ lastUpdate, light }: ClockProps) => {
   return (
     <div className={light ? 'light' : ''}>
       {format(new Date(lastUpdate))}
+      {/* @ts-ignore */}
       <style jsx>{`
         div {
           padding: 15px;

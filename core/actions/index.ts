@@ -1,4 +1,4 @@
-import { User, actionTypes } from '../interfaces';
+import { User, actionTypes, IGetEntryDetail } from '../interfaces';
 import * as actionIs from '../interfaces/actions.interfaces';
 
 export function failure(error: Error): actionIs.Failure {
@@ -43,8 +43,8 @@ export function tickClock(isServer: boolean): actionIs.TickClock {
   };
 }
 
-export function getDataEntryDetail(): actionIs.IGetEntryDetail {
-  return { type: actionTypes.GET_ENTRY_DETAIL };
+export function getDataEntryDetail(id: string, nameAPI = 'entries'): IGetEntryDetail {
+  return { type: actionTypes.GET_ENTRY_DETAIL, id: id, nameAPI };
 }
 
 export function getDataEntryDetailSuccess(data: any): actionIs.IGetEntryDetailSuccess {

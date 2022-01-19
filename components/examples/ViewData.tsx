@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
-import { AppState } from '@core/interfaces';
+import { AppState } from 'core/interfaces';
 
 interface IViewData {
   title: string;

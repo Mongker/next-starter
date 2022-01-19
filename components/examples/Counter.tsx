@@ -1,8 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-import { increment, decrement, reset } from '@core/actions';
-import { AppState } from '@core/interfaces';
+import { increment, decrement, reset } from 'core/actions';
+import { AppState } from 'core/interfaces';
 
 const Counter: React.FC = () => {
   const count = useSelector((state: AppState): number => state.count);
@@ -22,17 +21,18 @@ const Counter: React.FC = () => {
 
   return (
     <div>
-      <style jsx>{`
-        div {
-          padding: 0 0 20px 0;
-        }
-      `}</style>
       <h1>
         Count: <span>{count}</span>
       </h1>
       <button onClick={onIncrement}>+1</button>
       <button onClick={onDecrement}>-1</button>
       <button onClick={onReset}>Reset</button>
+      {/* @ts-ignore */}
+      <style jsx global>{`
+        div {
+          padding: 0 0 20px 0;
+        }
+      `}</style>
     </div>
   );
 };
