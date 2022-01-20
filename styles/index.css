@@ -1,0 +1,8 @@
+body {
+    font-feature-settings: "tnum";
+    font-family: Open Sans,-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto;
+    font-size: 13px;
+    font-variant: tabular-nums;
+    margin: 0;
+    line-height: 1.36;
+}

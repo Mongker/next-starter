@@ -5,9 +5,9 @@ import { getDataEntryDetail } from 'core/actions';
 import { END } from 'redux-saga';
 import { useSelector } from 'react-redux';
 import { selectData } from 'core/selectors/examples/selecterData';
-import getEntryContentRawToView from 'core/utils/getEntryContentRawToView';
+import getEntryContentRawToView from '../../core/utils/functions/getEntryContentRawToView';
 import { stateToHTML } from 'draft-js-export-html';
-import getIdByUrl from 'core/utils/getIdByUrl';
+import getIdByUrl from '../../core/utils/functions/getIdByUrl';
 
 // interface
 interface IPropsThreadDetail {

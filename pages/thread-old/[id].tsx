@@ -5,7 +5,8 @@ import { END } from 'redux-saga';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectData } from 'core/selectors/examples/selecterData';
 
-import getIdByUrl from 'core/utils/getIdByUrl';
+import getIdByUrl from '../../core/utils/functions/getIdByUrl';
+import Layout from '../../components/Layout';
 
 // interface
 interface IPropsThreadDetail {
@@ -72,11 +73,13 @@ export default function ThreadDetail({ id }: IPropsThreadDetail): JSX.Element {
   const title: string | unknown = Entry?.getIn([id, 'data', 'title']) || '';
   const detail: string | unknown = Entry?.getIn([id, 'data', 'detail']) || '';
   return (
-    <div className={'render-html'}>
-      <div className={'content'}>
-        <h1 className={'title'}>{typeof title === 'string' && title}</h1>
-        {/*<div>{typeof content === 'object' && JSON.stringify(contentHTML, null, 10)}</div>*/}
-        {typeof detail === 'string' && <div dangerouslySetInnerHTML={{ __html: detail || '' }} />}
+    <Layout>
+      <div className={'render-html'}>
+        <div className={'content'}>
+          <h1 className={'title'}>{typeof title === 'string' && title}</h1>
+          {/*<div>{typeof content === 'object' && JSON.stringify(contentHTML, null, 10)}</div>*/}
+          {typeof detail === 'string' && <div dangerouslySetInnerHTML={{ __html: detail }} />}
+        </div>
       </div>
       <style jsx>{`
         .render-html {
@@ -97,6 +100,6 @@ export default function ThreadDetail({ id }: IPropsThreadDetail): JSX.Element {
           box-shadow: 5px 5px 15px 5px #000000;
         }
       `}</style>
-    </div>
+    </Layout>
   );
 }
