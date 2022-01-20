@@ -57,7 +57,6 @@ export const getServerSideProps = wrapper.getServerSideProps(async (context) => 
     context.store.dispatch(END);
   }
   await context.store.sagaTask?.toPromise();
-  console.log('context.store.getState().Entry', context.store.getState().Entry); // MongLV log fix bug
   return { props: { id: entryId } };
 });
 
