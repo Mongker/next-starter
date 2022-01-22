@@ -4,9 +4,9 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-//      "@components/*": ["components/*"],
-//      "@app/*": ["app/*"],
-//      "@hooks/*": ["hooks/*"],
+      "components/*": ["components/*"],
+      "app/*": ["app/*"],
+      "hooks/*": ["hooks/*"],
       "SNWClient/*": ["vala-core/SNWClient/*"],
       "snw-modules-comp/*": ["vala-core/snw-modules-comp/*"],
       "snw-modules/*": ["vala-core/snw-modules/*"],

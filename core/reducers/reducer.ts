@@ -1,5 +1,5 @@
 import { HYDRATE } from 'next-redux-wrapper';
-import { AppState, Action, actionTypes } from '../interfaces';
+import { Action, actionTypes, AppState } from '../interfaces';
 // import { dataFake2 } from 'core/dataFake/dataFake';
 
 export const exampleInitialState: AppState = {
@@ -9,6 +9,22 @@ export const exampleInitialState: AppState = {
   light: false,
   placeholderData: null,
   Entry: null,
+  Comment: null,
+  Keyword: null,
+  HasKeyword: null,
+  HasTag: null,
+  ReactionTypes: null,
+  HasPermissions: null,
+  HasCommentUser: null,
+  HasSeen: null,
+  HasHiddenKeyword: null,
+  HiddenKeyword: null,
+  ReactionAll: null,
+  HasEntry: null,
+  ReactionUser: null,
+  User: null,
+  Tag: null,
+  HasComment: null,
 };
 
 const reducer = (
@@ -54,11 +70,21 @@ const reducer = (
         ...state,
         ...{ lastUpdate: action.ts, light: !!action.light },
       };
-    case actionTypes.GET_ENTRY_DETAIL_SUCCESS:
-      debugger; // MongLV
+    case actionTypes.GET_ID_DETAIL_SUCCESS: {
       return {
         ...state,
         ...action.data,
+      };
+    }
+    case actionTypes.GET_ENTRY_DETAIL_SUCCESS:
+      state.Entry = { ...action.data.Entry };
+      return {
+        ...state,
+      };
+    case actionTypes.GET_ID_USER_SUCCESS:
+      state.User = { ...action.data.User };
+      return {
+        ...state,
       };
     default:
       return state;

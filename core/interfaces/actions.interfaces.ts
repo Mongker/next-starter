@@ -11,21 +11,13 @@ export enum actionTypes {
   TICK_CLOCK = 'TICK_CLOCK',
 
   // thread
+  GET_ID_USER = 'GET_ID_USER',
+  GET_ID_USER_SUCCESS = 'GET_ID_USER_SUCCESS',
+  GET_ID_DETAIL = 'GET_ID_ENTRY_DETAIL',
+  GET_ID_DETAIL_SUCCESS = 'GET_ID_ENTRY_DETAIL_SUCCESS',
   GET_ENTRY_DETAIL = 'GET_ENTRY_DETAIL',
   GET_ENTRY_DETAIL_SUCCESS = 'GET_ENTRY_DETAIL_SUCCESS',
 }
-
-export type Action =
-  | Failure
-  | Increment
-  | Decrement
-  | Reset
-  | LoadData
-  | LoadDataSuccess
-  | StartClock
-  | TickClock
-  | IGetEntryDetail
-  | IGetEntryDetailSuccess;
 
 export interface Failure {
   type: actionTypes.FAILURE;
@@ -73,3 +65,40 @@ export interface IGetEntryDetailSuccess {
   type: actionTypes.GET_ENTRY_DETAIL_SUCCESS;
   data: any;
 }
+
+export interface IGetEntryIDDetail {
+  type: actionTypes.GET_ID_DETAIL;
+  id: string;
+  nameAPI: string;
+}
+
+export interface IGetEntryIDDetailSuccess {
+  type: actionTypes.GET_ID_DETAIL_SUCCESS;
+  data: any;
+}
+
+export interface IGetIdUser {
+  type: actionTypes.GET_ID_USER;
+  id: string;
+}
+
+export interface IGetIdUserSuccess {
+  type: actionTypes.GET_ID_USER_SUCCESS;
+  data: any;
+}
+
+export type Action =
+  | Failure
+  | Increment
+  | Decrement
+  | Reset
+  | LoadData
+  | LoadDataSuccess
+  | StartClock
+  | TickClock
+  | IGetEntryIDDetail
+  | IGetEntryIDDetailSuccess
+  | IGetIdUser
+  | IGetIdUserSuccess
+  | IGetEntryDetail
+  | IGetEntryDetailSuccess;

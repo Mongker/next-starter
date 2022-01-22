@@ -1,4 +1,12 @@
-import { User, actionTypes, IGetEntryDetail } from '../interfaces';
+import {
+  User,
+  actionTypes,
+  IGetEntryDetail,
+  IGetEntryIDDetail,
+  IGetEntryIDDetailSuccess,
+  IGetIdUserSuccess,
+  IGetIdUser,
+} from '../interfaces';
 import * as actionIs from '../interfaces/actions.interfaces';
 
 export function failure(error: Error): actionIs.Failure {
@@ -49,4 +57,19 @@ export function getDataEntryDetail(id: string, nameAPI = 'entries'): IGetEntryDe
 
 export function getDataEntryDetailSuccess(data: any): actionIs.IGetEntryDetailSuccess {
   return { type: actionTypes.GET_ENTRY_DETAIL_SUCCESS, data };
+}
+
+export function getDataIdEntryDetail(id: string, nameAPI = 'entries'): IGetEntryIDDetail {
+  return { type: actionTypes.GET_ID_DETAIL, id: id, nameAPI };
+}
+
+export function getDataIdEntryDetailSuccess(data: any): actionIs.IGetEntryIDDetailSuccess {
+  return { type: actionTypes.GET_ID_DETAIL_SUCCESS, data };
+}
+
+export function getDataIdUser(id: string): actionIs.IGetIdUser {
+  return { type: actionTypes.GET_ID_USER, id };
+}
+export function getDataIdUserSuccess(data: any): actionIs.IGetIdUserSuccess {
+  return { type: actionTypes.GET_ID_USER_SUCCESS, data };
 }

@@ -8,12 +8,14 @@ const selectData = createSelector(
   (state: AppState) => state.light,
   (state: AppState) => state.placeholderData,
   (state: AppState) => fromJS(state.Entry),
-  (error, lastUpdate, light, placeholderData, Entry) => ({
+  (state: AppState) => fromJS(state.Comment),
+  (error, lastUpdate, light, placeholderData, Entry, Comment) => ({
     error,
     lastUpdate,
     light,
     placeholderData,
     Entry,
+    Comment,
   }),
 );
 

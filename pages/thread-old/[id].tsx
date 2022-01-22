@@ -88,16 +88,15 @@ export default function ThreadDetail({ id }: IPropsThreadDetail): JSX.Element {
           justify-content: center;
           align-items: center;
         }
+
         .title {
           text-align: center;
         }
+
         .content {
-          width: 50%;
           margin: 0 auto;
           background-color: aliceblue;
           padding: 5px;
-          -webkit-box-shadow: 5px 5px 15px 5px #000000;
-          box-shadow: 5px 5px 15px 5px #000000;
         }
       `}</style>
     </Layout>

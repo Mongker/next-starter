@@ -18,7 +18,6 @@ export default class AppEditor extends Component {
   constructor(props) {
     super(props);
     const data = props.initialData ? props.initialData : initialData;
-    console.log('data EditorState', data); // MongLV log fix bug
     this.state = {
       editorState: EditorState.createWithContent(convertFromRaw(data)),
       showToolbar: false,

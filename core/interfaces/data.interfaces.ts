@@ -29,4 +29,20 @@ export interface AppState {
   light: boolean;
   placeholderData: User[] | null;
   Entry: any | null;
+  Comment: any | null;
+  Keyword: any | null;
+  HasKeyword: any | null;
+  HasTag: any | null;
+  ReactionTypes: any | null;
+  HasPermissions: any | null;
+  HasCommentUser: any | null;
+  HasSeen: any | null;
+  HasHiddenKeyword: any | null;
+  HiddenKeyword: any | null;
+  ReactionAll: any | null;
+  HasEntry: any | null;
+  ReactionUser: any | null;
+  User: any | null;
+  Tag: any | null;
+  HasComment: any | null;
 }
