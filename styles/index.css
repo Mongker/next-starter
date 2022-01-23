@@ -7,3 +7,24 @@ body {
     line-height: 1.36;
     background-color: #f7f7f7;
 }
+a {
+    text-decoration: none;
+}
+.flex {
+    display: flex;
+}
+.container_news {
+    margin-top: 16px;
+}
+.title_news-h1 {
+    color: #f2761c;
+    font-size: 25px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.36;
+    padding-top: 10px;
+    text-align: left;
+    margin-bottom: 0.5em;
+    margin-top: 0;
+}

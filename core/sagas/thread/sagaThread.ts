@@ -6,6 +6,7 @@ import {
   getDataEntryDetailSuccess,
   getDataIdEntryDetailSuccess,
   getDataIdUserSuccess,
+  getRelativeEntriesSuccess,
 } from 'core/actions';
 
 // Utils
@@ -75,6 +76,23 @@ function* doLoadDataIdEntrySaga(id: string, nameAPI: string) {
   }
 }
 
+function* doGetDataRelativeEntries(id: string) {
+  try {
+    // TODO by MONGLV: Khi nào build thì đưa vào file env
+    const url = `${GLOBAL_CONSTANTS.URL_API}/${id}/relative_entries?limit=6&type=get_more_entry&maxscore=0&minscore=0`;
+    const { status, data }: AxiosResponse = yield call(axios.get, url, {
+      headers: {
+        'company-id': GLOBAL_CONSTANTS.COMPANY_ID,
+        'x-header': JSON.stringify({ 'app-id': 1, systemType: 'vnr', isAuto: false }),
+      },
+    });
+    if (status === 200) {
+      yield put(getRelativeEntriesSuccess(data));
+    }
+  } catch (err) {
+    yield put(failure(err));
+  }
+}
 // ---------------- watch
 function* watchGetDataDetail() {
   while (true) {
@@ -97,5 +115,10 @@ function* watchGetIdDataDetail() {
     yield fork(doLoadDataIdEntrySaga, id, nameAPI);
   }
 }
-
-export { watchGetDataDetail, watchGetIdDataDetail, watchGetUser };
+function* watchGetRelativeEntries() {
+  while (true) {
+    const { id } = yield take(actionTypes.GET_RELATIVE_ENTRY);
+    yield fork(doGetDataRelativeEntries, id);
+  }
+}
+export { watchGetDataDetail, watchGetIdDataDetail, watchGetUser, watchGetRelativeEntries };

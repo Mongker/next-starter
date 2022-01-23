@@ -73,3 +73,11 @@ export function getDataIdUser(id: string): actionIs.IGetIdUser {
 export function getDataIdUserSuccess(data: any): actionIs.IGetIdUserSuccess {
   return { type: actionTypes.GET_ID_USER_SUCCESS, data };
 }
+
+export function getRelativeEntries(id: string): actionIs.IGetRelativeEntries {
+  return { type: actionTypes.GET_RELATIVE_ENTRY, id };
+}
+export function getRelativeEntriesSuccess(data: any): actionIs.IGetRelativeEntriesSuccess {
+  debugger; // Todo by MongLV
+  return { type: actionTypes.GET_RELATIVE_ENTRY_SUCCESS, data };
+}

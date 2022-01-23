@@ -17,6 +17,8 @@ export enum actionTypes {
   GET_ID_DETAIL_SUCCESS = 'GET_ID_ENTRY_DETAIL_SUCCESS',
   GET_ENTRY_DETAIL = 'GET_ENTRY_DETAIL',
   GET_ENTRY_DETAIL_SUCCESS = 'GET_ENTRY_DETAIL_SUCCESS',
+  GET_RELATIVE_ENTRY = 'GET_RELATIVE_ENTRY',
+  GET_RELATIVE_ENTRY_SUCCESS = 'GET_RELATIVE_ENTRY_SUCCESS',
 }
 
 export interface Failure {
@@ -86,7 +88,15 @@ export interface IGetIdUserSuccess {
   type: actionTypes.GET_ID_USER_SUCCESS;
   data: any;
 }
+export interface IGetRelativeEntries {
+  type: actionTypes.GET_RELATIVE_ENTRY;
+  id: string;
+}
 
+export interface IGetRelativeEntriesSuccess {
+  type: actionTypes.GET_RELATIVE_ENTRY_SUCCESS;
+  data: any;
+}
 export type Action =
   | Failure
   | Increment
@@ -100,5 +110,7 @@ export type Action =
   | IGetEntryIDDetailSuccess
   | IGetIdUser
   | IGetIdUserSuccess
+  | IGetRelativeEntries
+  | IGetRelativeEntriesSuccess
   | IGetEntryDetail
   | IGetEntryDetailSuccess;

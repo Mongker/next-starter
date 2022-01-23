@@ -15,11 +15,13 @@
 interface I_GLOBAL_CONSTANTS {
   URL_API: string;
   COMPANY_ID: string;
+  AVATAR_DEFAULT: string;
 }
 
 const GLOBAL_CONSTANTS: I_GLOBAL_CONSTANTS = {
   URL_API: `https://service.vnreview.vn`,
   COMPANY_ID: '563705867864535',
+  AVATAR_DEFAULT: 'https://vnreview.vn/fonts/AvatarDefaultNotLogin.svg',
 };
 
 export default GLOBAL_CONSTANTS;

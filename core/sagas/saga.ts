@@ -4,6 +4,7 @@ import { watchRunClockSaga } from 'core/sagas/examples/clock/sagaClock';
 import {
   watchGetDataDetail,
   watchGetIdDataDetail,
+  watchGetRelativeEntries,
   watchGetUser,
 } from 'core/sagas/thread/sagaThread';
 
@@ -14,6 +15,7 @@ function* rootSaga(): Generator {
     watchGetDataDetail(),
     watchGetIdDataDetail(),
     watchGetUser(),
+    watchGetRelativeEntries(),
   ]);
 }
 

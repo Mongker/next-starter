@@ -25,6 +25,7 @@ export const exampleInitialState: AppState = {
   User: null,
   Tag: null,
   HasComment: null,
+  HasRelatedEntry: null,
 };
 
 const reducer = (
@@ -82,7 +83,13 @@ const reducer = (
         ...state,
       };
     case actionTypes.GET_ID_USER_SUCCESS:
-      state.User = { ...action.data.User };
+      state.User = { ...state.User, ...action.data.User };
+      return {
+        ...state,
+      };
+    case actionTypes.GET_RELATIVE_ENTRY_SUCCESS:
+      state.Entry = { ...state.Entry, ...action.data.Entry };
+      state.HasRelatedEntry = { ...state.HasRelatedEntry, ...action.data.HasRelatedEntry };
       return {
         ...state,
       };

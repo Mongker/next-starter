@@ -45,4 +45,5 @@ export interface AppState {
   User: any | null;
   Tag: any | null;
   HasComment: any | null;
+  HasRelatedEntry: any | null;
 }

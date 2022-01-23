@@ -82,7 +82,7 @@ export default function ThreadDetail({ id }: IPropsThreadDetail): JSX.Element {
   // }, [id]);
 
   return (
-    <Layout>
+    <Layout id={id}>
       <WrapperThread />
       {/*<div className={'render-html'}>*/}
       {/*  <div className={'content'}>*/}
